@@ -1,27 +1,3 @@
-''' canNumero = int(input("Cuantos numeros vas a meter: "))
-listaNumer = []
-lisNumRepe = []
-lisNumPar = []
-lisNumImpar = []
-
-for i in range(canNumero):
-    c = int(input("Cuales van a ser: "))
-    listaNumer.append(c)
-    
-    if listaNumer[i] != c:
-        lisNumRepe.append(c)
-
-    for j in range(1,5):
-        if listaNumer[i] == 2*j:
-            lisNumPar.append(listaNumer[i])
-        elif listaNumer[i] == j+2:
-            lisNumImpar.append(listaNumer[i])
-
-print(listaNumer)
-print(lisNumPar)
-print(lisNumImpar)
-print(lisNumRepe)
-print(listaNumer.count(1))'''
 listaNumer = []
 canNumero = int(input("Cuantos numeros vas a meter: "))
 
