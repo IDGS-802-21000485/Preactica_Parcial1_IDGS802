@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <style>
+        body {
+            padding-top: 60px;
+        }
+
+        .tr-head {
+            background: #dff0d8;
+        }
+    </style>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap-responsive.min.css">
+</head>
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a href="#" class="brand">
+                    IDGS802
+                </a>
+                <ul class="nav">
+                    <li class="active">
+                        <a href="#">
+                            <i class="icon-home icon-white"></i>
+                            Inicio
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="#">
+                            <i class="icon-user icon-white"></i>
+                            Maestros
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="#">
+                            <i class="icon-user icon-white"></i>
+                            Alumnos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="border-color: black;">
+        <div class="row">
+            <div class="col-md-5">
+                <div id="formulario">
+                        <form action="/operacion" method="POST">
+                            <div>
+                                <label for="n1">N1:</label>
+                                <input type="text" name="n1" id="n1">
+                            </div>
+
+                            <div>
+                                <label for="n2">N2:</label>
+                                <input type="text" name="n2" id="n2">
+                            </div>
+
+                            <div>
+                                <input type="radio" name="sta" value="1" id="RSuma">
+                                <label for="RSuma">Suma</label>
+                            </div>
+
+                            <div>
+                                <input type="radio" name="sta" value="2" id="RResta">
+                                <label for="RResta">Resta</label>
+                            </div>
+
+                            <div>
+                                <input type="radio" name="sta" value="3" id="RMulti">
+                                <label for="RMulti">Multiplicación</label>
+                            </div>
+
+                            <div>
+                                <input type="radio" name="sta" value="4" id="RDivi">
+                                <label for="RDivi">División</label>
+                            </div>
+
+                            <input type="submit">
+                        </form>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div id="respuesta">
+                    <h2>Resultado de la operación:</h2>
+                    <p>Resultado: {{ resultado }}</p>
+                    <p>Operación: {{ operacion }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
