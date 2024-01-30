@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% import "_macros.html" as macros %}
+
+    <h1>Alumnos</h1>
+    <form action="" method="post">
+        {{macros.input_form(form.X1,class="form-control")}}
+        {{macros.input_form(form.Y1,class="form-control")}}
+        {{macros.input_form(form.X2,class="form-control")}}
+        {{macros.input_form(form.Y2,class="form-control")}}
+        <input type="submit" name="btn1">
+    </form>
+
+    <h2>La distancia entre dos puntos: {{res}}</h2>
+    {% endblock %}
