@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zodiaco Chino</title>
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/bootstrap/css/bootstrap-grid.min.css">
+    {% import "_macros.html" as macros %}
+    <style>
+        .centered-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-row {
+            display: flex;
+            flex-direction: column;
+            /* Cambiado a column */
+            width: 300px;
+            /* Ajusta el ancho según sea necesario */
+            margin-bottom: 10px;
+            /* Espacio entre las filas */
+        }
+
+        .form-row2 {
+            display: flex;
+            justify-content: space-between;
+            width: 300px;
+            /* Ajusta el ancho según sea necesario */
+            margin-bottom: 10px;
+            /* Espacio entre las filas */
+        }
+
+        .form-row input,
+        .form-row select {
+            margin-bottom: 5px;
+            /* Espacio entre los elementos */
+        }
+
+        .form-row2 input[type="text"],
+        .form-row2 select {
+            margin-bottom: 5px;
+            /* Espacio entre los elementos */
+            width: 60px;
+            /* Ancho específico para los campos de entrada */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-8 col-sm-12 col-xs-24">
+                <form action="" method="post">
+                    <div class="form-row">
+                        {{macros.formulario(Persona.nombre,class="form-control")}}
+                    </div>
+                    <div class="form-row">
+                        {{macros.formulario(Persona.apellidoP,class="form-control")}}
+                    </div>
+                    <div class="form-row">
+                        {{macros.formulario(Persona.apellidoM,class="form-control")}}
+                    </div>
+                    <div class="form-row2">
+                        {{macros.formulario(Persona.diaN,class="form-control")}}
+                        {{macros.formulario(Persona.mesN,class="form-control")}}
+                        {{macros.formulario(Persona.annioN,class="form-control")}}
+                    </div>
+                    {{macros.formulario(Persona.genero,class="form-control")}}
+                    <input type="submit" name="btn1">
+                    <input type="submit" name="btn2" value="Limpiar" onclick="">
+                </form>
+            </div>
+            <div class="col-lg-6 col-md-8 col-sm-12 col-xs-24">
+                <h2>Hola tu nombre es {{nombre}} {{apellidoP}} {{apellidoM}}</h2>
+                <h2>Tu edad es {{edad}}</h2>
+                <h2>Tu fecha de nacimiento es {{diaN}}/{{mesN}}/{{annioN}}</h2>
+                <h2>Eres {{genero}}</h2>
+                <h2>y tu zodiaco chino es {{zodiaco}}</h2>
+                <img src={{imag}} alt="Signo Zodiaco">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
