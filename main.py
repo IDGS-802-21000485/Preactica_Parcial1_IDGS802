@@ -2,6 +2,7 @@ from flask import Flask, request, render_template
 import forms, formsPersona
 import math
 from datetime import datetime
+from io import open
 
 app = Flask(__name__)
 
@@ -88,6 +89,56 @@ def zodiaco():
         imag = "../static/imgZo/"+zodiaco+".jpg"
     return render_template("Zodiaco.html", genero=genero,Persona=person_form, nombre = nombre, apellidoP = apellidoP,apellidoM = apellidoM, annioN = annioN,diaN=diaN,mesN=mesN, edad = edad, zodiaco = zodiaco, imag = imag)
 
+@app.route("/diccionarioEntra",methods=("GET","POST"))
+def diccionario():
+    dicc=forms.dicc(request.form)
+    ing = None
+    esp = None
+    trad = None
+    idi = None
+    
+    if request.method=='POST':
+        p1 = str(dicc.palEsp.data.lower())
+        p2 = str(dicc.palIng.data.lower()) 
+        
+        archivo_texto=open('dic.txt','a')       
+        archivo_texto.write('\n'+p1+" "+p2)
+        archivo_texto.close()
+        
+
+    return render_template("diccionario.html",dicc=dicc)
+
+@app.route("/diccionarioBuscar",methods=("GET","POST"))
+def diccionarioBusca():
+    dicc=forms.dicc(request.form)
+    ing = None
+    esp = None
+    trad = None
+    idi = None
+    
+    if request.method=='POST':
+        p1 = (dicc.lengu.data)
+        bus = (dicc.bus.data.lower())
+        
+        archivo_texto=open('dic.txt','r')
+        
+        for linea in archivo_texto:
+            idi = linea.strip().lower().split()
+            print(p1 == "Ingles")
+            if (p1 == "Ingles" and idi[0] == bus):
+                print("Entro el ingles")
+                trad = idi[1]
+                print(trad)
+            elif (p1 == "Español" and idi[1] == bus):
+                print("Entro el español")
+                trad = idi[0]
+                print("De aqui"+trad)
+            if(trad == None):
+                trad="No esta dentro del diccionario"
+        archivo_texto.close()
+    return render_template("diccionario.html",dicc=dicc,trad=trad)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
+    
